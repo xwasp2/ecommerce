@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Ball",
+    "price": 299,
+    "image": "/images/ball.jpeg",
+    "description": "A high-quality football perfect for both professional and casual play. The ball features durable stitching, high bounce, and enhanced grip, making it ideal for various weather conditions. Whether you're playing in the park, on the field, or in a match, this ball is built to last. It's designed for players of all skill levels, offering both power and precision with every kick.",
+    "category": "Sports Equipment",
+    "rating": 4.5,
+    "stock": 50
+  },
+  {
+    "id": 2,
+    "name": "Bat",
+    "price": 499,
+    "image": "/images/bat.jpeg",
+    "description": "Lightweight cricket bat designed for easy handling and fast play. Made from high-quality wood, this bat is perfect for both amateurs and professionals alike. The bat offers an excellent balance between power and control, allowing for smooth shots and quick reflexes. Its ergonomic handle ensures comfort during long sessions, while the sweet spot provides maximum power for optimal performance in the game.",
+    "category": "Sports Equipment",
+    "rating": 4.2,
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "name": "Gloves",
+    "price": 699,
+    "image": "/images/gloves.jpeg",
+    "description": "Durable gloves designed for a variety of sports. These gloves are constructed with breathable material that keeps your hands dry during intense activities. The durable grip enhances performance, whether you're holding a bat, racket, or ball. The gloves are designed for comfort with extra padding at key pressure points, ensuring a snug fit for extended wear. Perfect for athletes who require both protection and agility during play.",
+    "category": "Sports Equipment",
+    "rating": 4.7,
+    "stock": 20
+  },
+  {
+    "id": 4,
+    "name": "Tennis Racket",
+    "price": 1299,
+    "image": "/images/racket.jpeg",
+    "description": "High-performance tennis racket made from lightweight carbon fiber, designed for precision and power during gameplay. The racket's aerodynamic frame reduces drag, enhancing speed and stability during swings. With a large sweet spot, it offers excellent control and accuracy, making it an ideal choice for players looking to improve their game. Its comfortable grip and balanced design help minimize arm fatigue, making it perfect for long matches.",
+    "category": "Sports Equipment",
+    "rating": 4.8,
+    "stock": 15
+  },
+  {
+    "id": 5,
+    "name": "Yoga Mat",
+    "price": 799,
+    "image": "/images/yoga-mat.jpeg",
+    "description": "Non-slip yoga mat with extra cushioning for improved comfort and stability during your workouts. Made with eco-friendly materials, it provides a firm grip on the floor, preventing slipping during intense sessions. The mat is lightweight and easy to carry, making it perfect for yoga, pilates, or any fitness routine. Its thick padding ensures that your joints are protected while performing various poses, and the smooth surface provides excellent traction.",
+    "category": "Fitness",
+    "rating": 4.6,
+    "stock": 100
+  },
+  {
+    "id": 6,
+    "name": "Jump Rope",
+    "price": 399,
+    "image": "/images/jumprope.jpeg",
+    "description": "A high-quality jump rope perfect for fitness enthusiasts looking to enhance their cardio workout. The rope features adjustable length and ergonomic handles for a comfortable grip, ensuring a smooth and efficient workout. Ideal for improving endurance, agility, and coordination, this jump rope is a must-have for anyone looking to stay in shape. It’s lightweight and compact, making it easy to carry and store, whether at home, in the gym, or while traveling.",
+    "category": "Fitness",
+    "rating": 4.4,
+    "stock": 75
+  }
+]
