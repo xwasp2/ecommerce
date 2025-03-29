@@ -1,26 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { toast } from "react-toastify";  // Import toast for notifications
+import { toast } from "react-toastify"; // Import toast for notifications
 
 const ProductPage = () => {
   const { id } = useParams();
   const { addToCart } = useContext(CartContext);
+  
+  // State to hold product data
+  const [product, setProduct] = useState(null);
 
-  const products = [
-    { id: 1, name: "Ball", price: 299, image: "/images/ball.jpeg" },
-    { id: 2, name: "Bat", price: 499, image: "/images/bat.jpeg" },
-    { id: 3, name: "Gloves", price: 699, image: "/images/gloves.jpeg" },
-  ];
+  useEffect(() => {
+    // Fetch the product data from the public/data/products.json file
+    fetch("/data/products.json")
+      .then((response) => response.json())
+      .then((data) => {
+        // Find the product that matches the id
+        const foundProduct = data.find((p) => p.id === Number(id));
+        setProduct(foundProduct); // Set the product in state
+      })
+      .catch((error) => {
+        console.error("Error fetching product data:", error);
+      });
+  }, [id]); // This effect runs when the `id` changes
 
-  const product = products.find((p) => p.id === Number(id));
-
+  // If the product is not found or still loading
   if (!product) {
     return <h2 className="text-center text-red-500">Product not found</h2>;
   }
 
   const handleAddToCart = (product) => {
-    addToCart(product);  // Add product to cart
+    addToCart(product); // Add product to cart
     toast.success(`${product.name} added to cart!`, {
       position: "bottom-right",
       autoClose: 3000,
@@ -39,6 +49,15 @@ const ProductPage = () => {
           <div className="mt-4 md:mt-0 md:ml-6 text-center md:text-left">
             <h1 className="text-3xl font-bold">{product.name}</h1>
             <p className="text-gray-600 mt-2">{product.description}</p>
+            <p className="text-gray-600 mt-2">
+              <strong>Category:</strong> {product.category}
+            </p>
+            <p className="text-gray-600 mt-2">
+              <strong>Rating:</strong> {product.rating} / 5
+            </p>
+            <p className="text-gray-600 mt-2">
+              <strong>Stock:</strong> {product.stock} available
+            </p>
             <p className="text-2xl font-semibold mt-4">₹{product.price}</p>
             <button
               onClick={() => handleAddToCart(product)}
