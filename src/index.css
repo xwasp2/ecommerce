@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply w-full h-full bg-gray-100 text-gray-900;
+}
+
+#root {
+  @apply w-full min-h-screen flex flex-col;
+}
