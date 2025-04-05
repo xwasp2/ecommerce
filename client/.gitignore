@@ -25,3 +25,7 @@ dist-ssr
 
 node_modules/
 .env
+
+# Vite cache
+.vite
+node_modules/.vite
