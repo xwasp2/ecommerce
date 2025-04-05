@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Link, Navigate, useNavigate} from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
   const { cart } = useContext(CartContext);
@@ -11,12 +12,12 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
 
   const decodeUsername = () => {
-    if (token){
+    if (token) {
       try {
-      const decoded = jwt_decode(token);
-      return decoded.username;
+        const decoded = jwtDecode(token);
+        return decoded.username;
       }
-      catch(err){
+      catch (err) {
         console.error("Invalid token", err);
       }
     }
@@ -25,9 +26,9 @@ const Navbar = () => {
   const email = decodeUsername();
 
   const handleLogout = () => {
-    if (token){
-        localStorage.removeItem("token");
-        navigate("/login");
+    if (token) {
+      localStorage.removeItem("token");
+      navigate("/login");
     };
   };
 
@@ -36,36 +37,40 @@ const Navbar = () => {
       <Link to="/" className="text-2xl font-bold">🛍️ My Store</Link>
 
       <div className="flex items-center gap-4">
-        { token &&
+
+        <div className="relative">
+          <Link to="/cart" className="text-lg" aria-label="View Cart">
+            🛒
+          </Link>
+
+          {cartCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2">
+              {cartCount}
+            </span>
+          )}
+        </div>
+        {token &&
           (
-            <>            
-                <span className="text-sm text-gray-300">
-                    Logged in as {email}
-                </span>
-                  
-                <button 
-                       onClick={handleLogout}
-                       className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm"
-                >
-                    Logout
-                </button>
+            <>
+              <span className="text-sm text-gray-300">
+                {email}
+              </span>
+
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm"
+              >
+                Logout
+              </button>
             </>
 
           )
         }
+
+
       </div>
 
-      <div className="relative">
-        <Link to="/cart" className="text-lg" aria-label="View Cart">
-          🛒
-        </Link>
 
-        {cartCount > 0 && (
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2">
-            {cartCount}
-          </span>
-        )}
-      </div>
     </nav>
   );
 };
