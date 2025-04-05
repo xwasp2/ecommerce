@@ -52,16 +52,16 @@ const Navbar = () => {
         {token &&
           (
             <>
-              <span className="text-sm text-gray-300">
-                {email}
-              </span>
-
               <button
                 onClick={handleLogout}
                 className="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm"
               >
                 Logout
               </button>
+
+              <span className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center text-sm font-semibold">
+                {email?.[0]?.toUpperCase()}
+              </span>
             </>
 
           )
